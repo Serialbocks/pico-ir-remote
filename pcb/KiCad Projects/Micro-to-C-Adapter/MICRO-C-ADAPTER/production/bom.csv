@@ -1,0 +1,4 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+J1,USB_Micro-B_Amphenol_10103594-0001LF_Horizontal_Mirrored,1,USB_OTG,
+P1,USB_C_Plug_Molex_105444,1,USB_C_Plug_USB2.0,
+"R1, R2",0402,2,5k1,

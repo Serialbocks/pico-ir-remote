@@ -1,0 +1,16 @@
+18 - DS
+19 - DAT7
+20 - DAT2
+21 - CLK
+22 - DAT4
+23 - VCCQ
+24 - VCC
+25 - RST_n
+26 - DAT3
+27 - DAT6
+28 - VSS = VSSQ
+29 - DAT0
+30 - DAT1
+31 - VDDi
+36 - CMD
+38 - DAT5

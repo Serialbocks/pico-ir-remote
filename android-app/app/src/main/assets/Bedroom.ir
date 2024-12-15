@@ -1,0 +1,38 @@
+Filetype: IR signals file
+Version: 1
+# 
+name: Fan
+type: raw
+frequency: 38000
+duty_cycle: 0.330000
+data: 9378 4513 585 573 584 576 581 573 611 547 584 575 582 571 586 572 585 574 583 1677 612 1652 611 1650 612 1651 611 1653 636 1650 612 1653 610 1651 611 1652 610 547 610 1652 610 547 610 546 611 548 609 1651 611 547 610 546 611 1651 611 547 610 1652 610 1651 611 1652 610 546 611 1651 611
+# 
+name: Tv
+type: parsed
+protocol: Samsung32
+address: 07 00 00 00
+command: 02 00 00 00
+# 
+name: Vol_up
+type: parsed
+protocol: Samsung32
+address: 07 00 00 00
+command: 07 00 00 00
+# 
+name: Vol_dn
+type: parsed
+protocol: Samsung32
+address: 07 00 00 00
+command: 0B 00 00 00
+# 
+name: Mute
+type: parsed
+protocol: Samsung32
+address: 07 00 00 00
+command: 0F 00 00 00
+# 
+name: Fan_nec
+type: parsed
+protocol: NEC
+address: 00 00 00 00
+command: 45 00 00 00

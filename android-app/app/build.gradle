@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 34
+    defaultConfig {
+        targetSdkVersion 34
+        minSdkVersion 19
+        vectorDrawables.useSupportLibrary true
+
+        applicationId "de.kai_morich.simple_usb_terminal"
+        versionCode 1
+        versionName "1.0"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    namespace 'de.kai_morich.simple_usb_terminal'
+}
+
+dependencies {
+    implementation 'com.github.mik3y:usb-serial-for-android:3.8.0' // maven jitpack
+    //implementation('com.github.mik3y:usb-serial-for-android:3.8.0beta') { changing = true } // maven local
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.12.0'
+}

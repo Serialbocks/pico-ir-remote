@@ -1,0 +1,40 @@
+.pio_version 0
+
+.program infrared
+
+.define BURST_CYCLES 21
+
+    set pins, 0
+.wrap_target
+
+    pull block
+    out x, 32 ; send x cycles of carrier wave
+next_carrier_bit:
+    set pins, 1 [3]
+    set pins, 0
+    jmp x-- next_carrier_bit [2]
+
+    pull block
+    out x, 32 ; set x cycles of 0
+    jmp x-- next_zero_bit
+next_zero_bit:
+    jmp x-- next_zero_bit [7]
+.wrap
+
+% c-sdk {
+#include "hardware/clocks.h"
+
+static inline void infrared_program_init(PIO pio, uint sm, uint offset, float freq, uint pin_cmd) {
+    pio_gpio_init(pio, pin_cmd);
+    // pio, state machine, pin, num of pins, is output
+    pio_sm_set_consecutive_pindirs(pio, sm, pin_cmd, 1, true);
+    pio_sm_config c = infrared_program_get_default_config(offset);
+    sm_config_set_out_pins(&c, pin_cmd, 1);
+    sm_config_set_set_pins(&c, pin_cmd, 1);
+    //sm_config_set_out_shift(&c, false, false, 32); // Shift to the left
+
+    pio_sm_init(pio, sm, offset, &c);
+    pio_sm_set_clkdiv(pio, sm, clock_get_hz(clk_sys) / (8 * freq));
+}
+
+%}
